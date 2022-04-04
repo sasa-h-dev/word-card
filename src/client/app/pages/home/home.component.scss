@@ -1,0 +1,12 @@
+.home-container {
+  box-sizing: border-box;
+  flex-flow: wrap;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.example-card {
+  width: 8rem;
+  margin: 0.5rem;
+}

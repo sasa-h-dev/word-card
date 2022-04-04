@@ -1,0 +1,23 @@
+.word-card-contariner {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+
+  .button-area {
+    width: 95%;
+    position: fixed;
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      button {
+        width: 5rem;
+        margin: 0.5rem;
+      }
+    }
+  }
+}

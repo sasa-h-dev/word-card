@@ -1,0 +1,16 @@
+<div class="word-card-contariner">
+  <mat-card>
+    <mat-card-title>单词卡</mat-card-title>
+    <mat-card-subtitle>随机出题模式</mat-card-subtitle>
+    <mat-card-content>
+      <p>{{ longText }}</p>
+      <p *ngFor="let answer of answerArr">{{ answer }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="showAnswer()">答案</button>
+      <button mat-button (click)="showNext()">下一题</button>
+      <button mat-button (click)="showSameType()">同类型题</button>
+    </mat-card-actions>
+    <mat-card-footer> </mat-card-footer>
+  </mat-card>
+</div>

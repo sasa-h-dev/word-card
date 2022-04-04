@@ -1,0 +1,12 @@
+.toolbar-container {
+  height: 4rem;
+
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+}
+
+.drawer-container {
+  height: 100%;
+  height: calc(100% - 4rem);
+}
