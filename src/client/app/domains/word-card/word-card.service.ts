@@ -10,6 +10,7 @@ export class WordCardService {
   constructor(private http: HttpClient) {}
 
   getWordCards(): Observable<IWordCard[]> {
-    return this.http.get<IWordCard[]>('http://localhost:3000/api/words/');
+    // return this.http.get<IWordCard[]>('http://localhost:3000/api/words/');
+    return this.http.get<IWordCard[]>('/api/words/');
   }
 }
