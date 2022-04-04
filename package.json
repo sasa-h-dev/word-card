@@ -6,6 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "start": "node dist/server/main.js",
     "build": "npm-run-all build:debug:*",
     "ng": "ng",
     "start:client": "ng serve",
@@ -16,7 +17,7 @@
     "prebuild": "rimraf dist",
     "build:debug:server": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "start:debug:server": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
