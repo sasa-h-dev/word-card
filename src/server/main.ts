@@ -13,6 +13,6 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
   app.useStaticAssets(join(__dirname, '..', '/word-card-client'));
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
