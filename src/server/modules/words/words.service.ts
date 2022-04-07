@@ -55,11 +55,6 @@ export class WordsService {
       });
 
       // console.log('sheet', JSON.stringify(res[0], null, 2));
-
-      console.log(
-        'this.wordCardRepository.find();',
-        await this.wordCardRepository.find()
-      );
       return res;
     } catch (ex) {
       console.log('ex', ex);
