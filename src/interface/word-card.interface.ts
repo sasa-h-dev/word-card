@@ -1,7 +1,17 @@
 export interface IWordCard {
-  no?: string;
-  type?: string;
-  chinese?: string;
-  japanese?: string;
-  japaneseArr: string[];
+  id?: number;
+  title?: string;
+  sameCategory?: string;
+  meaning?: string;
+  foreign?: string;
+  conjunction?: string;
+  example?: string;
+  similar?: string;
+  antonym?: string;
+  property?: string;
+  label?: string;
+  Others?: string;
+  Order?: number;
+
+  foreignArr: string[];
 }

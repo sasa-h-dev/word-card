@@ -32,7 +32,7 @@ export class WordCardComponent implements OnInit {
 
   // 答案
   async showAnswer() {
-    const answer = this.currentItem.japanese || '';
+    const answer = this.currentItem.foreign || '';
     this.answerArr = answer.split(';');
   }
 
@@ -48,7 +48,8 @@ export class WordCardComponent implements OnInit {
     this.randomItem(
       this.wordCards.filter(
         (item) =>
-          item.no !== this.currentItem.no && item.type === this.currentItem.type
+          item.id !== this.currentItem.id &&
+          item.sameCategory === this.currentItem.sameCategory
       )
     );
   }
@@ -56,6 +57,6 @@ export class WordCardComponent implements OnInit {
   // 随机出题
   randomItem(items: IWordCard[]): void {
     this.currentItem = items[(Math.random() * items.length) | 0];
-    this.longText = this.currentItem.chinese || '';
+    this.longText = this.currentItem.meaning || '';
   }
 }

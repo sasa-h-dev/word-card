@@ -15,23 +15,9 @@
   </div>
 
   <div *ngFor="let item of wordCards; index as i">
-    <h3>{{ i + 1 }}. {{ item.chinese }}</h3>
+    <h3>{{ i + 1 }}. {{ item.meaning }}</h3>
     <ng-container *ngIf="isShownAnswer">
-      <p *ngFor="let japanese of item.japaneseArr">{{ japanese }}</p>
+      <p *ngFor="let foreign of item.foreignArr">{{ foreign }}</p>
     </ng-container>
   </div>
-
-  <!-- <mat-card>
-    <mat-card-title>单词卡</mat-card-title>
-    <mat-card-subtitle></mat-card-subtitle>
-    <mat-card-content>
-
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button (click)="showAnswer()">答案</button>
-      <button mat-button (click)="showNext()">下一题</button>
-      <button mat-button (click)="showSameType()">同类型题</button>
-    </mat-card-actions>
-    <mat-card-footer> </mat-card-footer>
-  </mat-card> -->
 </div>
