@@ -8,12 +8,12 @@ import { AppComponent } from './app.component';
 import { WordCardModule } from './pages/word-card/word-card.module';
 import { WordCardListModule } from './pages/word-card-list/word-card-list.module';
 import { HomeModule } from './pages/home/home.module';
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { AppStoreModule } from './shared/store/app-store.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +23,7 @@ import { MatListModule } from '@angular/material/list';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    AppStoreModule,
     HomeModule,
     WordCardModule,
     WordCardListModule,
@@ -32,7 +33,12 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatListModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'API_URL',
+      useValue: '/api',
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

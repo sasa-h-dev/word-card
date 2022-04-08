@@ -18,7 +18,19 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
-    "lib": ["es2020", "dom"]
+    "lib": ["es2020", "dom"],
+    "paths": {
+      "@interface*": ["../interface*"],
+      "@shared*": ["../client/app/shared*"],
+      "@constants*": ["../constants*"],
+      "@components*": ["../client/app/components*"],
+      "@templates*": ["../client/app/components/templates*"],
+      "@organisms*": ["../client/app/components/organisms*"],
+      "@pages*": ["../client/app/pages*"],
+      "@domains*": ["../client/app/domains*"],
+      "@assets*": ["../client/app/assets*"],
+      "@environments*": ["environments*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -16,6 +16,18 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@interface*": ["./src/interface*"],
+      "@shared*": ["./src/client/app/shared*"],
+      "@constants*": ["./src/constants*"],
+      "@components*": ["./src/client/app/components*"],
+      "@templates*": ["./src/client/app/components/templates*"],
+      "@organisms*": ["./src/client/app/components/organisms*"],
+      "@pages*": ["./src/client/app/pages*"],
+      "@domains*": ["./src/client/app/domains*"],
+      "@assets*": ["./src/client/app/assets*"],
+      "@environments*": ["./src/client/environments*"]
+    }
   }
 }

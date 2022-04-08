@@ -1,10 +1,9 @@
-import { Injectable } from '@nestjs/common';
-import * as ExcelJS from 'exceljs';
 import * as CSV from 'csvtojson';
-import axios from 'axios';
+import * as ExcelJS from 'exceljs';
+import { Repository } from 'typeorm';
+import { Injectable } from '@nestjs/common';
 import { WordCard } from '../../libs/orm-entities';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 
 @Injectable()
 export class WordsService {
@@ -12,8 +11,18 @@ export class WordsService {
     @InjectRepository(WordCard)
     private readonly wordCardRepository: Repository<WordCard>
   ) {}
+
   getHello(): string {
     return 'Hello Words';
+  }
+
+  async getWordCardList() {
+    return (await this.wordCardRepository.find()).map((item) => {
+      return {
+        ...item,
+        foreignArr: item.foreign?.split(';'),
+      };
+    });
   }
 
   async getObjFromExcle() {
@@ -59,14 +68,5 @@ export class WordsService {
     } catch (ex) {
       console.log('ex', ex);
     }
-  }
-
-  async getWordCardList() {
-    return (await this.wordCardRepository.find()).map((item) => {
-      return {
-        ...item,
-        foreignArr: item.foreign?.split(';'),
-      };
-    });
   }
 }
