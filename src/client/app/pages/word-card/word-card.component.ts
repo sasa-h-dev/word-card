@@ -61,4 +61,9 @@ export class WordCardComponent implements OnInit {
     this.currentItem = items[(Math.random() * items.length) | 0];
     this.longText = this.currentItem.meaning || '';
   }
+
+  // 所有题目
+  navigateTo(path: string) {
+    this.router.navigate([path]);
+  }
 }
