@@ -6,6 +6,11 @@ export const wordCardList = createSelector(
   getState,
   (state) => state.wordCardList
 );
+export const activeWordCardList = createSelector(
+  getState,
+  (state) => state.activeWordCardList
+);
+
 export const wordCardDeail = createSelector(
   getState,
   (state) => state.wordCardDeail

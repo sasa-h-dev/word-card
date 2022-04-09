@@ -1,7 +1,9 @@
 import { first } from 'rxjs';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IWordCard } from '../../../../interface/word-card.interface';
 import { WordCardService } from '../../domains/word-card/word-card.service';
+import { WorkCardFacate } from '../../domains/word-card/word-card.facade';
 
 @Component({
   selector: 'app-word-card',
@@ -9,25 +11,25 @@ import { WordCardService } from '../../domains/word-card/word-card.service';
   styleUrls: ['./word-card.component.scss'],
 })
 export class WordCardComponent implements OnInit {
+  activeWordCardList$ = this.workCardFacate.activeWordCardList$;
   wordCards: IWordCard[] = [];
   currentItem!: IWordCard;
 
   longText = '';
   answerArr: string[] = [];
 
-  constructor(private wordCardService: WordCardService) {}
+  constructor(private workCardFacate: WorkCardFacate, private router: Router) {}
 
   ngOnInit(): void {
     // get all
-    this.wordCardService
-      .getWordCards()
-      .pipe(first())
-      .subscribe((wordCards) => {
+    this.activeWordCardList$.subscribe((wordCards) => {
+      if (wordCards) {
         // set all
         this.wordCards = wordCards;
         // set random item
-        this.randomItem(this.wordCards);
-      });
+        if (this.wordCards) this.randomItem(this.wordCards);
+      }
+    });
   }
 
   // 答案

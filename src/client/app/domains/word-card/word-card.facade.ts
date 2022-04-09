@@ -6,10 +6,14 @@ import { Observable, tap, first } from 'rxjs';
 import { State, StateType } from './store/word-card.state';
 import { WordCardApiService } from './word-card.api.service';
 import { WordCardStoreModule } from './store/word-card.store.module';
+import { IWordCard } from '../../../../interface/word-card.interface';
 
 @Injectable({ providedIn: WordCardStoreModule })
 export class WorkCardFacate {
   readonly wordCardList$ = this.store.pipe(select(Selectors.wordCardList));
+  readonly activeWordCardList$ = this.store.pipe(
+    select(Selectors.activeWordCardList)
+  );
   readonly wordCardDeail$ = this.store.pipe(select(Selectors.wordCardDeail));
 
   constructor(private store: Store<State>, private api: WordCardApiService) {}
@@ -21,6 +25,11 @@ export class WorkCardFacate {
       .subscribe((wordCardList) => {
         return this.store.dispatch(Actions.fetchWordCardList({ wordCardList }));
       });
+  }
+
+  /**active word card */
+  public setActiveWordCardList(activeWordCardList: IWordCard[]): void {
+    this.store.dispatch(Actions.setActiveWordCardList({ activeWordCardList }));
   }
 
   // todo

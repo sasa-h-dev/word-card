@@ -1,7 +1,9 @@
 <div class="word-card-contariner">
   <mat-card>
     <mat-card-title>单词卡</mat-card-title>
-    <mat-card-subtitle>随机出题模式</mat-card-subtitle>
+    <mat-card-subtitle
+      >随机出题模式　共{{ this.wordCards?.length }}题</mat-card-subtitle
+    >
     <mat-card-content>
       <p>{{ longText }}</p>
       <p *ngFor="let answer of answerArr">{{ answer }}</p>

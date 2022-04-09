@@ -9,6 +9,11 @@ const blogReducer = createReducer(
     wordCardList,
   })),
 
+  on(Actions.setActiveWordCardList, (state, { activeWordCardList }) => ({
+    ...state,
+    activeWordCardList,
+  })),
+
   on(Actions.fetchWordCardDeail, (state, { wordCardDeail }) => ({
     ...state,
     wordCardDeail,

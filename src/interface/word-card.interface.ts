@@ -13,5 +13,6 @@ export interface IWordCard {
   Others?: string;
   Order?: number;
 
-  foreignArr: string[];
+  isChecked?: boolean;
+  foreignArr?: string[];
 }

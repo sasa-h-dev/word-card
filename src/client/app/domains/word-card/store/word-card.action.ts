@@ -3,12 +3,17 @@ import { IWordCard } from '../../../../../interface/word-card.interface';
 import { StateType } from './word-card.state';
 
 export const fetchWordCardList = createAction(
-  '[wordCardList]',
+  '[fetchWordCardList]',
   props<{ wordCardList: IWordCard[] }>()
 );
 
+export const setActiveWordCardList = createAction(
+  '[setActiveWordCardList]',
+  props<{ activeWordCardList: IWordCard[] }>()
+);
+
 export const fetchWordCardDeail = createAction(
-  '[wordCardDeail]',
+  '[fetchWordCardDeail]',
   props<{ wordCardDeail: IWordCard }>()
 );
 

@@ -6,9 +6,11 @@ export type StateType = 'wordCardList' | 'wordCardDeail';
 
 export interface State {
   wordCardList: IWordCard[] | null;
+  activeWordCardList: IWordCard[] | null;
   wordCardDeail: IWordCard | null;
 }
 export const initState: State = {
   wordCardList: null,
+  activeWordCardList: null,
   wordCardDeail: null,
 };

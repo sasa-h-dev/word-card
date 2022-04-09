@@ -20,4 +20,13 @@
       }
     }
   }
+  .list-area {
+    .checklist-top-area {
+      display: flex;
+      flex-direction: column;
+      mat-form-field {
+        width: 6rem;
+      }
+    }
+  }
 }
