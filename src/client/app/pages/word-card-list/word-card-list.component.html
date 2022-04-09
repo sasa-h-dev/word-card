@@ -1,4 +1,5 @@
 <div class="word-card-contariner">
+  <!-- 隐藏答案/答题卡 -->
   <div class="button-area">
     <div>
       <button mat-raised-button color="primary" (click)="showAnswer()">
@@ -15,7 +16,9 @@
   </div>
 
   <div class="list-area">
+    <!-- 选择答题卡出题范围 -->
     <div class="checklist-top-area">
+      <p>选择答题卡出题范围</p>
       <mat-checkbox
         [checked]="allChecked"
         [indeterminate]="setSomeChecked()"
@@ -52,6 +55,7 @@
       </mat-checkbox>
     </div>
 
+    <!-- 列表 -->
     <div *ngFor="let item of wordCards; index as i">
       <mat-checkbox
         [checked]="!!item.isChecked"

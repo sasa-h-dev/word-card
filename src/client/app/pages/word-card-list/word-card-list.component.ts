@@ -54,10 +54,14 @@ export class WordCardListComponent implements OnInit {
     this.isShownAnswer = !this.isShownAnswer;
   }
 
-  // 页面跳转
+  // 答题卡画面
   navigateTo(path: string) {
     if (this.wordCards) {
-      this.workCardFacate.setActiveWordCardList(this.activeWordCardList);
+      this.workCardFacate.setActiveWordCardList(
+        this.activeWordCardList.length > 0
+          ? this.activeWordCardList
+          : this.wordCards
+      );
     }
     this.router.navigate([path]);
   }
