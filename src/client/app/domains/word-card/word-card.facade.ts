@@ -14,7 +14,7 @@ export class WorkCardFacate {
   readonly activeWordCardList$ = this.store.pipe(
     select(Selectors.activeWordCardList)
   );
-  readonly wordCardDeail$ = this.store.pipe(select(Selectors.wordCardDeail));
+  readonly wordCardDetail$ = this.store.pipe(select(Selectors.wordCardDetail));
 
   constructor(private store: Store<State>, private api: WordCardApiService) {}
 
@@ -40,7 +40,7 @@ export class WorkCardFacate {
   async clearMyBlogStates(): Promise<void> {
     this.store.dispatch(
       Actions.clearState({
-        stateNames: ['wordCardList', 'wordCardDeail'],
+        stateNames: ['wordCardList', 'wordCardDetail'],
       })
     );
   }

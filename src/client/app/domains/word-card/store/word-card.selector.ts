@@ -11,7 +11,7 @@ export const activeWordCardList = createSelector(
   (state) => state.activeWordCardList
 );
 
-export const wordCardDeail = createSelector(
+export const wordCardDetail = createSelector(
   getState,
-  (state) => state.wordCardDeail
+  (state) => state.wordCardDetail
 );

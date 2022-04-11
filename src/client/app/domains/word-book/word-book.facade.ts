@@ -9,12 +9,12 @@ import { WordBookStoreModule } from './store/word-book.store.module';
 import { IWordBook } from '../../../../interface/word-book.interface';
 
 @Injectable({ providedIn: WordBookStoreModule })
-export class WorkCardFacate {
+export class WorkBookFacate {
   readonly wordBookList$ = this.store.pipe(select(Selectors.wordBookList));
   readonly activeWordBookList$ = this.store.pipe(
     select(Selectors.activeWordBookList)
   );
-  readonly wordBookDeail$ = this.store.pipe(select(Selectors.wordBookDeail));
+  readonly wordBookDetail$ = this.store.pipe(select(Selectors.wordBookDetail));
 
   constructor(private store: Store<State>, private api: WordBookApiService) {}
 
@@ -33,20 +33,20 @@ export class WorkCardFacate {
     this.store.dispatch(Actions.setActiveWordBookList({ activeWordBookList }));
   }
 
-  // todo
-  public fetchWordBookDetail(): void {
-    this.api.fetchWordBookList().pipe(
-      tap((wordBookList) => {
-        this.store.dispatch(Actions.fetchWordBookList({ wordBookList }));
-      })
-    );
+  public fetchWordBookDetail(wordBookId: string): void {
+    this.api
+      .fetchWordBookDetail(wordBookId)
+      .pipe(first())
+      .subscribe((wordBookDetail) => {
+        this.store.dispatch(Actions.fetchWordBookDetail({ wordBookDetail }));
+      });
   }
 
   /** 清除状态 所有*/
   async clearMyBlogStates(): Promise<void> {
     this.store.dispatch(
       Actions.clearState({
-        stateNames: ['wordBookList', 'wordBookDeail'],
+        stateNames: ['wordBookList', 'wordBookDetail'],
       })
     );
   }

@@ -17,12 +17,6 @@ export class WordsController {
     res.json(await this.wordsService.getHello());
   }
 
-  // @Get()
-  // async getObjFromExcle(@Res() res: Response) {
-  //   const databaseUrl = this.configService.get<string>('DATABASE_URL');
-  //   res.json(await this.wordsService.getObjFromExcle());
-  // }
-
   @Post('word-card-list')
   async getWordCardList(
     @Res() res: Response,
@@ -35,4 +29,18 @@ export class WordsController {
   async getWordBookList(@Res() res: Response) {
     res.json(await this.wordsService.getWordBookList());
   }
+
+  @Post('word-book')
+  async getWordBookDetail(
+    @Res() res: Response,
+    @Body() body: { wordBookId: number }
+  ) {
+    res.json(await this.wordsService.getWordBookDetail(body.wordBookId));
+  }
+
+  // @Get()
+  // async getObjFromExcle(@Res() res: Response) {
+  //   const databaseUrl = this.configService.get<string>('DATABASE_URL');
+  //   res.json(await this.wordsService.getObjFromExcle());
+  // }
 }

@@ -31,8 +31,18 @@
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
       <td mat-cell *matCellDef="let row">
-        <button mat-button disabled="deleteData()">
+        <button mat-button (click)="deleteData()" disabled>
           <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- edit Column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-button (click)="navigateTo('word-book/' + row.id)">
+          <mat-icon>edit</mat-icon>
         </button>
       </td>
     </ng-container>

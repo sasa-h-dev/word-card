@@ -59,6 +59,32 @@ export class WordsService {
     });
   }
 
+  async getWordBookDetail(wordBookId: number) {
+    return await this.wordBookRepository
+      .createQueryBuilder('wordBook')
+      .leftJoin('wordBook.wordCardList', 'wordCard')
+      .select([
+        'wordBook.id',
+        'wordBook.title',
+        'wordBook.description',
+        'wordCard.id',
+        'wordCard.sameCategory',
+        'wordCard.meaning',
+        'wordCard.foreign',
+        'wordCard.conjunction',
+        'wordCard.example',
+        'wordCard.similar',
+        'wordCard.antonym',
+        'wordCard.property',
+        'wordCard.label',
+        'wordCard.others',
+        'wordCard.order',
+      ])
+      .where('wordBook.id = :wordBookId', { wordBookId })
+      .orderBy('wordCard.order', 'ASC')
+      .getOne();
+  }
+
   async getObjFromExcle() {
     try {
       const targetExcelPath = 'src/server/assets/excel/50.xlsx';

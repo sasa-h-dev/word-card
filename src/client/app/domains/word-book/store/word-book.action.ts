@@ -12,9 +12,9 @@ export const setActiveWordBookList = createAction(
   props<{ activeWordBookList: IWordBook[] }>()
 );
 
-export const fetchWordBookDeail = createAction(
-  '[fetchWordBookDeail]',
-  props<{ wordBookDeail: IWordBook }>()
+export const fetchWordBookDetail = createAction(
+  '[fetchWordBookDetail]',
+  props<{ wordBookDetail: IWordBook }>()
 );
 
 export const clearState = createAction(

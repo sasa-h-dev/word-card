@@ -36,8 +36,8 @@ export class WordCardListComponent implements OnInit {
   endNum: number = 0;
 
   constructor(
-    private workCardFacate: WorkCardFacate,
     private router: Router,
+    private workCardFacate: WorkCardFacate,
     private activatedRoute: ActivatedRoute
   ) {}
 

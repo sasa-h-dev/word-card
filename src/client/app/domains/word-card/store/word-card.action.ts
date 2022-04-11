@@ -12,9 +12,9 @@ export const setActiveWordCardList = createAction(
   props<{ activeWordCardList: IWordCard[] }>()
 );
 
-export const fetchWordCardDeail = createAction(
-  '[fetchWordCardDeail]',
-  props<{ wordCardDeail: IWordCard }>()
+export const fetchWordCardDetail = createAction(
+  '[fetchWordCardDetail]',
+  props<{ wordCardDetail: IWordCard }>()
 );
 
 export const clearState = createAction(

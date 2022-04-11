@@ -1,0 +1,100 @@
+<div class="button-container">
+  <button mat-raised-button (click)="save()" disabled>
+    <mat-icon inline>save</mat-icon>保存
+  </button>
+</div>
+<div class="table-area" *ngIf="dataSource">
+  <form [formGroup]="form" autocomplete="off">
+    <ng-container formArrayName="formControl">
+      <table mat-table [dataSource]="formControl.controls">
+        <!-- no Column -->
+        <ng-container matColumnDef="no">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="column_no"
+          >
+            番号
+          </th>
+          <td class="column_no" mat-cell *matCellDef="let row; let i = index">
+            {{ i + 1 }}
+          </td>
+        </ng-container>
+
+        <!-- meaning Column -->
+        <ng-container matColumnDef="meaning">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="column_meaning"
+          >
+            词义
+          </th>
+          <td mat-cell *matCellDef="let row" [formGroup]="row">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <textarea
+                matInput
+                placeholder="meaning"
+                formControlName="meaning"
+                required
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="2"
+              >
+              </textarea>
+            </mat-form-field>
+          </td>
+        </ng-container>
+
+        <!-- foreign Column -->
+        <ng-container matColumnDef="foreign">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="column_foreign"
+          >
+            答案
+          </th>
+          <td mat-cell *matCellDef="let row" [formGroup]="row">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <textarea
+                matInput
+                placeholder="foreign"
+                formControlName="foreign"
+                required
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="2"
+              >
+              </textarea>
+            </mat-form-field>
+          </td>
+        </ng-container>
+
+        <!-- delete Column -->
+        <ng-container matColumnDef="delete">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="column_delete"
+          ></th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-button disabled="delete()">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </ng-container>
+  </form>
+
+  <mat-paginator
+    [pageSizeOptions]="[10, 25, 100]"
+    aria-label="Select page of users"
+  ></mat-paginator>
+</div>

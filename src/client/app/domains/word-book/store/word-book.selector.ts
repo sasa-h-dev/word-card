@@ -11,7 +11,7 @@ export const activeWordBookList = createSelector(
   (state) => state.activeWordBookList
 );
 
-export const wordBookDeail = createSelector(
+export const wordBookDetail = createSelector(
   getState,
-  (state) => state.wordBookDeail
+  (state) => state.wordBookDetail
 );

@@ -1,0 +1,32 @@
+.button-container {
+  text-align: end;
+  margin: 1rem;
+}
+.table-area {
+  padding: 1rem;
+  table {
+    width: 100%;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  td {
+    padding: 0.1rem;
+  }
+  .column_no {
+    padding-left: 0.5rem;
+    width: 10%;
+  }
+  .column_meaning {
+    width: 35%;
+  }
+  .column_foreign {
+    width: 50%;
+  }
+  .column_delete {
+    width: 5%;
+  }
+}

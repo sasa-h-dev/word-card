@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { WorkCardFacate } from '../../domains/word-book/word-book.facade';
-import { IWordBook } from '../../../../interface/word-book.interface';
+import { Component, OnInit } from '@angular/core';
+import { WorkBookFacate } from '../../domains/word-book/word-book.facade';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +8,12 @@ import { IWordBook } from '../../../../interface/word-book.interface';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  wordBookList$ = this.workCardFacate.wordBookList$;
+  wordBookList$ = this.workBookFacate.wordBookList$;
 
-  constructor(private workCardFacate: WorkCardFacate, private router: Router) {}
+  constructor(private workBookFacate: WorkBookFacate, private router: Router) {}
 
   ngOnInit(): void {
-    this.workCardFacate.fetchWordBookList();
+    this.workBookFacate.fetchWordBookList();
   }
 
   navigateTo(path: string) {

@@ -14,9 +14,9 @@ const customReducer = createReducer(
     activeWordBookList,
   })),
 
-  on(Actions.fetchWordBookDeail, (state, { wordBookDeail }) => ({
+  on(Actions.fetchWordBookDetail, (state, { wordBookDetail }) => ({
     ...state,
-    wordBookDeail,
+    wordBookDetail,
   })),
 
   on(Actions.clearState, (state, { stateNames }) => {

@@ -5,16 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { WordCardModule } from './pages/word-card/word-card.module';
-import { WordCardListModule } from './pages/word-card-list/word-card-list.module';
-import { WordBookListModule } from './pages/word-book-list/word-book-list.module';
-import { HomeModule } from './pages/home/home.module';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { AppStoreModule } from './shared/store/app-store.module';
+import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { AppStoreModule } from './shared/store/app-store.module';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { HomeModule } from './pages/home/home.module';
+import { WordCardModule } from './pages/word-card/word-card.module';
+import { WordCardListModule } from './pages/word-card-list/word-card-list.module';
+import { WordBookModule } from './pages/word-book/word-book.module';
+import { WordBookListModule } from './pages/word-book-list/word-book-list.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,15 +26,16 @@ import { AppStoreModule } from './shared/store/app-store.module';
     HttpClientModule,
     BrowserAnimationsModule,
     AppStoreModule,
-    HomeModule,
-    WordCardModule,
-    WordCardListModule,
-    WordBookListModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
+    HomeModule,
+    WordCardModule,
+    WordCardListModule,
+    WordBookModule,
+    WordBookListModule,
   ],
   providers: [
     {

@@ -14,4 +14,9 @@ export class WordBookApiService {
     const url = `${this.apiUrl}/words/word-book-list`;
     return this.http.post<IWordBook[]>(url, {});
   }
+
+  fetchWordBookDetail(wordBookId: string): Observable<IWordBook> {
+    const url = `${this.apiUrl}/words/word-book`;
+    return this.http.post<IWordBook>(url, { wordBookId });
+  }
 }
