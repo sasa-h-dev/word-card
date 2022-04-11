@@ -14,8 +14,24 @@
     width: 100%;
   }
 
-  td,
-  th {
-    width: 25%;
+  // td {
+  //   padding: 0.1rem;
+  // }
+  .column_no {
+    padding-left: 0.5rem;
+    width: 10%;
+  }
+  .column_title {
+    padding-left: 0.5rem;
+    width: 75%;
+  }
+  .column_open {
+    width: 5%;
+  }
+  .column_delete {
+    width: 5%;
+  }
+  .column_edit {
+    width: 5%;
   }
 }
