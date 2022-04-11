@@ -1,18 +1,19 @@
 <div class="home-container">
-  <mat-card class="example-card">
-    <mat-card-title>日语50句</mat-card-title>
-    <!-- <mat-card-subtitle>日语</mat-card-subtitle> -->
-    <mat-card-content>
-      <p>非常实用的日语短句</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button
-        mat-raised-button
-        color="accent"
-        (click)="navigateTo('/word-card-list/1')"
-      >
-        开始学习
-      </button>
-    </mat-card-actions>
-  </mat-card>
+  <ng-container *ngIf="wordBookList$ | async as wordBookList">
+    <mat-card class="card-area" *ngFor="let wordBook of wordBookList">
+      <mat-card-title>{{ wordBook.title }}</mat-card-title>
+      <mat-card-content>
+        <p>{{ wordBook.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="navigateTo('/word-card-list/' + wordBook.id)"
+        >
+          start
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
 </div>

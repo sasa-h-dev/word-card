@@ -6,8 +6,12 @@
   justify-content: center;
 }
 
-.example-card {
+.card-area {
   width: 90%;
   max-width: 675px;
   margin: 0.5rem;
+  mat-card-actions {
+    padding-right: 1rem;
+    text-align: end;
+  }
 }
