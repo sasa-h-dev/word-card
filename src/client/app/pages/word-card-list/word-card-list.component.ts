@@ -1,7 +1,8 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IWordCard } from '../../../../interface/word-card.interface';
 import { WorkCardFacate } from '../../domains/word-card/word-card.facade';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-word-card-list',
@@ -28,16 +29,23 @@ export class WordCardListComponent implements OnInit {
     }
   }
 
+  /**是否显示答案 */
   isShownAnswer = true;
 
   startNum: number = 0;
   endNum: number = 0;
 
-  constructor(private workCardFacate: WorkCardFacate, private router: Router) {}
+  constructor(
+    private workCardFacate: WorkCardFacate,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    // get all
-    this.workCardFacate.fetchWordCardList();
+    this.activatedRoute.paramMap.pipe(first()).subscribe((params: ParamMap) => {
+      // get all
+      this.workCardFacate.fetchWordCardList(params.get('wordBookId') as string);
+    });
 
     this.wordCardList$.subscribe((wordCards) => {
       // set all

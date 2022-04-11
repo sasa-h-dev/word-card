@@ -18,9 +18,10 @@ export class WorkCardFacate {
 
   constructor(private store: Store<State>, private api: WordCardApiService) {}
 
-  public fetchWordCardList(): void {
+  // 初期获取所有
+  public fetchWordCardList(wordBookId: string): void {
     this.api
-      .fetchWordCardList()
+      .fetchWordCardList(wordBookId)
       .pipe(first())
       .subscribe((wordCardList) => {
         return this.store.dispatch(Actions.fetchWordCardList({ wordCardList }));
@@ -33,13 +34,7 @@ export class WorkCardFacate {
   }
 
   // todo
-  public fetchWordCardDetail(): void {
-    this.api.fetchWordCardList().pipe(
-      tap((wordCardList) => {
-        this.store.dispatch(Actions.fetchWordCardList({ wordCardList }));
-      })
-    );
-  }
+  public fetchWordCardDetail(): void {}
 
   /** 清除状态 所有*/
   async clearMyBlogStates(): Promise<void> {

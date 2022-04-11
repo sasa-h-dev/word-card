@@ -7,18 +7,22 @@
   </button>
   <span>学习工具</span>
   <span class="toolbar-spacer"></span>
-  <button mat-icon-button>
+  <button mat-icon-button disabled>
     <mat-icon>favorite</mat-icon>
   </button>
-  <button mat-icon-button>
+  <button mat-icon-button disabled>
     <mat-icon>share</mat-icon>
   </button>
 </mat-toolbar>
 <mat-drawer-container class="drawer-container" hasBackdrop>
   <mat-drawer #drawer mode="over"
     ><mat-selection-list #shoes [multiple]="false">
-      <mat-list-option *ngFor="let mentItem of menuList" [value]="mentItem">
-        {{ mentItem }}
+      <mat-list-option
+        *ngFor="let mentItem of menuList"
+        [value]="mentItem"
+        (click)="navigateTo(mentItem.link)"
+      >
+        {{ mentItem.lable }}
       </mat-list-option>
     </mat-selection-list></mat-drawer
   >

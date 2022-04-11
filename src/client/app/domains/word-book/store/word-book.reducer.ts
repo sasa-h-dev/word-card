@@ -1,22 +1,22 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { State, initState } from './word-card.state';
-import * as Actions from './word-card.action';
+import { State, initState } from './word-book.state';
+import * as Actions from './word-book.action';
 
 const customReducer = createReducer(
   initState,
-  on(Actions.fetchWordCardList, (state, { wordCardList }) => ({
+  on(Actions.fetchWordBookList, (state, { wordBookList }) => ({
     ...state,
-    wordCardList,
+    wordBookList,
   })),
 
-  on(Actions.setActiveWordCardList, (state, { activeWordCardList }) => ({
+  on(Actions.setActiveWordBookList, (state, { activeWordBookList }) => ({
     ...state,
-    activeWordCardList,
+    activeWordBookList,
   })),
 
-  on(Actions.fetchWordCardDeail, (state, { wordCardDeail }) => ({
+  on(Actions.fetchWordBookDeail, (state, { wordBookDeail }) => ({
     ...state,
-    wordCardDeail,
+    wordBookDeail,
   })),
 
   on(Actions.clearState, (state, { stateNames }) => {

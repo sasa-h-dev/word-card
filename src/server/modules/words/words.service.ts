@@ -2,25 +2,59 @@ import * as CSV from 'csvtojson';
 import * as ExcelJS from 'exceljs';
 import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
-import { WordCard } from '../../libs/orm-entities';
+import { WordCard, WordBook } from '../../libs/orm-entities';
 import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class WordsService {
   constructor(
     @InjectRepository(WordCard)
-    private readonly wordCardRepository: Repository<WordCard>
+    private readonly wordCardRepository: Repository<WordCard>,
+    @InjectRepository(WordBook)
+    private readonly wordBookRepository: Repository<WordBook>
   ) {}
 
   getHello(): string {
     return 'Hello Words';
   }
 
-  async getWordCardList() {
-    return (await this.wordCardRepository.find()).map((item) => {
+  async getWordCardList(wordBookId: number) {
+    const queryRes = await this.wordBookRepository
+      .createQueryBuilder('wordBook')
+      .leftJoin('wordBook.wordCardList', 'wordCard')
+      .select([
+        'wordBook.id',
+        'wordBook.title',
+        'wordCard.id',
+        'wordCard.sameCategory',
+        'wordCard.meaning',
+        'wordCard.foreign',
+        'wordCard.conjunction',
+        'wordCard.example',
+        'wordCard.similar',
+        'wordCard.antonym',
+        'wordCard.property',
+        'wordCard.label',
+        'wordCard.others',
+        'wordCard.order',
+      ])
+      .where('wordBook.id = :wordBookId', { wordBookId })
+      .orderBy('wordCard.order', 'ASC')
+      .getOne();
+
+    return queryRes?.wordCardList.map((card) => {
+      return {
+        ...card,
+        title: queryRes.title,
+        foreignArr: card.foreign?.split(';'),
+      };
+    });
+  }
+
+  async getWordBookList() {
+    return (await this.wordBookRepository.find()).map((item) => {
       return {
         ...item,
-        foreignArr: item.foreign?.split(';'),
       };
     });
   }

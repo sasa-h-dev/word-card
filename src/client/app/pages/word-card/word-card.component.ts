@@ -2,7 +2,6 @@ import { first } from 'rxjs';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IWordCard } from '../../../../interface/word-card.interface';
-import { WordCardService } from '../../domains/word-card/word-card.service';
 import { WorkCardFacate } from '../../domains/word-card/word-card.facade';
 
 @Component({

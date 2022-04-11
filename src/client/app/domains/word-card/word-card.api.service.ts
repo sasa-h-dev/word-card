@@ -10,9 +10,8 @@ export class WordCardApiService {
     @Inject('API_URL') private apiUrl: string
   ) {}
 
-  fetchWordCardList(): Observable<IWordCard[]> {
-    const url = `${this.apiUrl}/words/`;
-    return this.http.get<IWordCard[]>(url);
-    // return this.http.get<IWordCard[]>('http://localhost:3000/api/words/');
+  fetchWordCardList(wordBookId: string): Observable<IWordCard[]> {
+    const url = `${this.apiUrl}/words/word-card-list`;
+    return this.http.post<IWordCard[]>(url, { wordBookId });
   }
 }

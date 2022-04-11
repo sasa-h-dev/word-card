@@ -23,8 +23,16 @@ export class WordsController {
   //   res.json(await this.wordsService.getObjFromExcle());
   // }
 
-  @Get()
-  async getWordCardList(@Res() res: Response) {
-    res.json(await this.wordsService.getWordCardList());
+  @Post('word-card-list')
+  async getWordCardList(
+    @Res() res: Response,
+    @Body() body: { wordBookId: number }
+  ) {
+    res.json(await this.wordsService.getWordCardList(body.wordBookId));
+  }
+
+  @Post('word-book-list')
+  async getWordBookList(@Res() res: Response) {
+    res.json(await this.wordsService.getWordBookList());
   }
 }

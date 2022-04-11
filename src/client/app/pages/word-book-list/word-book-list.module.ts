@@ -7,18 +7,24 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { WordCardListComponent } from './word-card-list.component';
-import { WordCardListRoutingModule } from './word-card-list-routing.module';
-import { WordCardStoreModule } from '../../domains/word-card/store/word-card.store.module';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
+import { WordBookListComponent } from './word-book-list.component';
+import { WordBookListRoutingModule } from './word-book-list-routing.module';
+import { WordBookStoreModule } from '../../domains/word-book/store/word-book.store.module';
 
 @NgModule({
-  declarations: [WordCardListComponent],
+  declarations: [WordBookListComponent],
   imports: [
     FormsModule,
     CommonModule,
     RouterModule,
-    WordCardListRoutingModule,
-    WordCardStoreModule,
+    WordBookListRoutingModule,
+    WordBookStoreModule,
+    MatIconModule,
+    MatTableModule,
+    MatPaginatorModule,
     MatCardModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -26,4 +32,4 @@ import { WordCardStoreModule } from '../../domains/word-card/store/word-card.sto
     MatInputModule,
   ],
 })
-export class WordCardListModule {}
+export class WordBookListModule {}

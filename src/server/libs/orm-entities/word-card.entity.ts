@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
+import { WordBook } from './word-book.entity';
 
 @Entity('word-card')
 export class WordCard {
@@ -76,4 +83,14 @@ export class WordCard {
     nullable: true,
   })
   order: number;
+
+  @Column('integer', {
+    name: 'WordBookParrentId',
+    nullable: true,
+  })
+  wordBookParrentId: string;
+
+  @ManyToOne(() => WordBook, (wordBook) => wordBook.wordCardList)
+  @JoinColumn({ name: 'WordBookParrentId', referencedColumnName: 'id' })
+  readonly wordBook?: WordBook;
 }

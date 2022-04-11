@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { WordCardModule } from './pages/word-card/word-card.module';
 import { WordCardListModule } from './pages/word-card-list/word-card-list.module';
+import { WordBookListModule } from './pages/word-book-list/word-book-list.module';
 import { HomeModule } from './pages/home/home.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -27,6 +28,7 @@ import { AppStoreModule } from './shared/store/app-store.module';
     HomeModule,
     WordCardModule,
     WordCardListModule,
+    WordBookListModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,

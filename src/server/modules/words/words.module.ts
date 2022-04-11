@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
-import { WordsController } from './words.controller';
 import { WordsService } from './words.service';
-import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { WordCard } from '../../libs/orm-entities';
+import { WordsController } from './words.controller';
+import { WordCard, WordBook } from '../../libs/orm-entities';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([WordCard])],
+  imports: [TypeOrmModule.forFeature([WordCard, WordBook])],
   controllers: [WordsController],
   providers: [WordsService],
 })

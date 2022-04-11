@@ -1,0 +1,21 @@
+.button-container {
+  text-align: end;
+  margin: 1rem;
+}
+.table-area {
+  margin: 1rem;
+  width: 90%;
+  table {
+    width: 100%;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  td,
+  th {
+    width: 25%;
+  }
+}
