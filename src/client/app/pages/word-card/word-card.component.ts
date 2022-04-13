@@ -33,7 +33,7 @@ export class WordCardComponent implements OnInit {
 
   // 答案
   async showAnswer() {
-    const answer = this.currentItem.foreign || '';
+    const answer = this.currentItem.word || '';
     this.answerArr = answer.split(';');
   }
 
@@ -50,7 +50,7 @@ export class WordCardComponent implements OnInit {
       this.wordCards.filter(
         (item) =>
           item.id !== this.currentItem.id &&
-          item.sameCategory === this.currentItem.sameCategory
+          item.category === this.currentItem.category
       )
     );
   }

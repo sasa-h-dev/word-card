@@ -13,30 +13,34 @@ export class WordBook {
   @PrimaryGeneratedColumn({ type: 'integer', name: 'id' })
   id: number;
 
-  @Column('character varying', {
-    name: 'Title',
-    nullable: true,
-  })
-  title: string;
-
-  @Column('character varying', {
-    name: 'Type',
-    nullable: true,
-  })
-  type: string;
-
   @Column('integer', {
     name: 'WordBookParrentId',
     nullable: true,
   })
   wordBookParrentId: string;
 
+  /**标题 */
+  @Column('character varying', {
+    name: 'Title',
+    nullable: true,
+  })
+  title: string;
+
+  /**分类 */
+  @Column('character varying', {
+    name: 'Type',
+    nullable: true,
+  })
+  type: string;
+
+  /**排序 */
   @Column('integer', {
     name: 'Order',
     nullable: true,
   })
   order: number;
 
+  /**描述 */
   @Column('character varying', {
     name: 'Description',
     nullable: true,

@@ -18,7 +18,7 @@ export class AppComponent {
       link: '/',
     },
     {
-      lable: '辞书列表',
+      lable: '词书列表',
       link: '/word-book-list',
     },
     {

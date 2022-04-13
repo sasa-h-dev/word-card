@@ -30,7 +30,7 @@ export class WordBookComponent implements OnInit, AfterViewChecked {
   wordBookDetail$ = this.workBookFacate.wordBookDetail$;
   wordBookDetail!: IWordBook;
 
-  displayedColumns = ['no', 'meaning', 'foreign', 'delete'];
+  displayedColumns = ['no', 'meaning', 'word', 'delete'];
   dataSource!: MatTableDataSource<IWordBook>;
 
   form!: FormGroup;
@@ -39,7 +39,7 @@ export class WordBookComponent implements OnInit, AfterViewChecked {
   }
 
   isNewModle = true;
-  emptyWordCardRow = { id: undefined, meaning: '', foreign: '' } as IWordCard;
+  emptyWordCardRow = { id: undefined, meaning: '', word: '' } as IWordCard;
   @ViewChild(MatTable) table!: MatTable<IWordBook>;
 
   constructor(
@@ -117,7 +117,7 @@ export class WordBookComponent implements OnInit, AfterViewChecked {
     return new FormGroup({
       id: new FormControl(item.id),
       meaning: new FormControl(item.meaning, Validators.required),
-      foreign: new FormControl(item.foreign, Validators.required),
+      word: new FormControl(item.word, Validators.required),
     });
   }
 }

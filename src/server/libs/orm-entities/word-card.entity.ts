@@ -12,78 +12,98 @@ export class WordCard {
   @PrimaryGeneratedColumn({ type: 'integer', name: 'id' })
   id: number;
 
+  /**单词、语法 */
   @Column('character varying', {
-    name: 'Title',
+    name: 'Word',
     nullable: true,
   })
-  title: string;
+  word: string;
 
+  /**读音*/
   @Column('character varying', {
-    name: 'SameCategory',
+    name: 'Word',
     nullable: true,
   })
-  sameCategory: string;
+  pronunciation: string;
 
+  /**声调 0 1，2，3，4，5*/
+  @Column('character varying', {
+    name: 'Word',
+    nullable: true,
+  })
+  tone: string;
+
+  /**语义 */
   @Column('character varying', {
     name: 'Meaning',
     nullable: true,
   })
   meaning: string;
 
+  /**分类: N1 N2*/
   @Column('character varying', {
-    name: 'Foreign',
+    name: 'Category',
     nullable: true,
   })
-  foreign: string;
+  category: string;
 
-  @Column('character varying', {
-    name: 'Conjunction',
-    nullable: true,
-  })
-  conjunction: string;
-
-  @Column('character varying', {
-    name: 'Example',
-    nullable: true,
-  })
-  example: string;
-
-  @Column('character varying', {
-    name: 'Similar',
-    nullable: true,
-  })
-  similar: string;
-
-  @Column('character varying', {
-    name: 'Antonym',
-    nullable: true,
-  })
-  antonym: string;
-
+  /**属性: 感動詞 名字 动词 */
   @Column('character varying', {
     name: 'Property',
     nullable: true,
   })
   property: string;
 
+  /**接续 */
+  @Column('character varying', {
+    name: 'Conjunction',
+    nullable: true,
+  })
+  conjunction: string;
+
+  /**例句 */
+  @Column('character varying', {
+    name: 'Example',
+    nullable: true,
+  })
+  example: string;
+
+  /**同义词 */
+  @Column('character varying', {
+    name: 'Similar',
+    nullable: true,
+  })
+  similar: string;
+
+  /**反义词 */
+  @Column('character varying', {
+    name: 'Antonym',
+    nullable: true,
+  })
+  antonym: string;
+
+  /**标签: xx */
   @Column('character varying', {
     name: 'Label',
     nullable: true,
   })
   label: string;
 
+  /**其他 */
   @Column('character varying', {
     name: 'Others',
     nullable: true,
   })
   others: string;
 
+  /**排序 */
   @Column('integer', {
     name: 'Order',
     nullable: true,
   })
   order: number;
 
+  /**属于哪本词书 */
   @Column('integer', {
     name: 'WordBookParrentId',
     nullable: true,

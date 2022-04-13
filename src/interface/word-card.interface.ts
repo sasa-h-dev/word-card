@@ -1,18 +1,20 @@
 export interface IWordCard {
   id?: number;
-  title?: string;
-  sameCategory?: string;
+  category?: string;
   meaning?: string;
-  foreign?: string;
+  word?: string;
   conjunction?: string;
   example?: string;
   similar?: string;
   antonym?: string;
   property?: string;
   label?: string;
-  Others?: string;
-  Order?: number;
+  others?: string;
+  order?: number;
+  pronunciation?: string;
+  tone?: string;
 
+  /**是否被选中 用于单词卡 */
   isChecked?: boolean;
-  foreignArr?: string[];
+  wordArr?: string[];
 }

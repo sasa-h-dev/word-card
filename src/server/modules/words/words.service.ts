@@ -26,9 +26,9 @@ export class WordsService {
         'wordBook.id',
         'wordBook.title',
         'wordCard.id',
-        'wordCard.sameCategory',
+        'wordCard.category',
         'wordCard.meaning',
-        'wordCard.foreign',
+        'wordCard.word',
         'wordCard.conjunction',
         'wordCard.example',
         'wordCard.similar',
@@ -46,7 +46,7 @@ export class WordsService {
       return {
         ...card,
         title: queryRes.title,
-        foreignArr: card.foreign?.split(';'),
+        wordArr: card.word?.split(';'),
       };
     });
   }
@@ -68,9 +68,9 @@ export class WordsService {
         'wordBook.title',
         'wordBook.description',
         'wordCard.id',
-        'wordCard.sameCategory',
+        'wordCard.category',
         'wordCard.meaning',
-        'wordCard.foreign',
+        'wordCard.word',
         'wordCard.conjunction',
         'wordCard.example',
         'wordCard.similar',
