@@ -1,6 +1,6 @@
 <div class="book-area">
   <mat-card>
-    <mat-card-title>创建词书</mat-card-title>
+    <mat-card-title>词书</mat-card-title>
     <mat-card-content>
       <div class="field-area" [formGroup]="bookForm">
         <mat-form-field appearance="outline">
@@ -10,7 +10,6 @@
             formControlName="bookTitleControl"
             placeholder="N1单词速记"
           />
-          <mat-hint>写这里</mat-hint>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label><mat-icon>favorite</mat-icon>描述信息</mat-label>
@@ -21,21 +20,23 @@
             cdkTextareaAutosize
             cdkAutosizeMinRows="2"
           ></textarea>
-          <mat-hint>写这里</mat-hint>
-        </mat-form-field>
-      </div></mat-card-content
-    >
-    <mat-card-actions>
-      <button mat-button [disabled]="bookForm.invalid" (click)="saveBook()">
-        保存
+        </mat-form-field></div
+    ></mat-card-content>
+    <mat-card-actions align="center">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="bookForm.invalid"
+        (click)="saveBook()"
+      >
+        保存词书
       </button>
-      <button mat-button>クリア</button>
     </mat-card-actions>
   </mat-card>
 </div>
 <div class="button-container">
-  <button mat-raised-button (click)="saveCard()" disabled>
-    <mat-icon inline>save</mat-icon>保存
+  <button mat-raised-button (click)="saveCard()">
+    <mat-icon inline>save</mat-icon>保存单词
   </button>
   <button mat-raised-button (click)="addRow()">
     <mat-icon inline>add</mat-icon>追加行
@@ -125,7 +126,4 @@
       </table>
     </ng-container>
   </form>
-  <button mat-raised-button (click)="saveCard()">
-    <mat-icon inline>save</mat-icon>保存
-  </button>
 </mat-card>

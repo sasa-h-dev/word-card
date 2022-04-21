@@ -48,7 +48,6 @@ export class WordBookComponent implements OnInit, AfterViewChecked {
   // card list正在编辑模式
   isCardEditting = false;
 
-  bookDescriptionControl = new FormControl('', Validators.required);
   bookForm = new FormGroup({
     bookTitleControl: new FormControl('', [
       Validators.required,
@@ -97,7 +96,15 @@ export class WordBookComponent implements OnInit, AfterViewChecked {
         this.wordBookDetail$.subscribe((wordBookDetail) => {
           if (wordBookDetail) {
             this.wordBookDetail = wordBookDetail;
+            // Book Setting
+            this.bookForm.controls['bookTitleControl'].setValue(
+              this.wordBookDetail.title
+            );
+            this.bookForm.controls['bookDescriptionControl'].setValue(
+              this.wordBookDetail.description
+            );
 
+            // Card Setting
             if (this.wordBookDetail.wordCardList) {
               this.cardListForm.setControl(
                 'formControl',
