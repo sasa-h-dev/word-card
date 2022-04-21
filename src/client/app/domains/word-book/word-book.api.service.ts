@@ -19,4 +19,14 @@ export class WordBookApiService {
     const url = `${this.apiUrl}/words/word-book`;
     return this.http.post<IWordBook>(url, { wordBookId });
   }
+
+  /**保存WordBook详细 */
+  saveWordBookDetail(wordBook: IWordBook): Observable<IWordBook> {
+    const url = `${this.apiUrl}/words/save-word-book`;
+    console.log(
+      'saveWordBookDetail(wordBook: IWordBook): Observable<IWordBook> {',
+      wordBook
+    );
+    return this.http.post<IWordBook>(url, wordBook);
+  }
 }

@@ -1,3 +1,11 @@
+.book-area {
+  margin: 1rem;
+}
+.field-area {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
 .button-container {
   text-align: start;
   margin: 0 0 1rem 1rem;
@@ -5,8 +13,8 @@
     margin: 1rem 1rem 0 0;
   }
 }
-.table-area {
-  padding: 1rem;
+.card-area {
+  margin: 1rem;
   table {
     width: 100%;
   }

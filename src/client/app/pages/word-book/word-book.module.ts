@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { WordBookComponent } from './word-book.component';
 import { WordBookRoutingModule } from './word-book-routing.module';
 import { WordBookStoreModule } from '../../domains/word-book/store/word-book.store.module';
+import { WordCardStoreModule } from '../../domains/word-card/store/word-card.store.module';
 
 @NgModule({
   declarations: [WordBookComponent],
@@ -22,6 +23,7 @@ import { WordBookStoreModule } from '../../domains/word-book/store/word-book.sto
     RouterModule,
     WordBookRoutingModule,
     WordBookStoreModule,
+    WordCardStoreModule,
     MatIconModule,
     MatTableModule,
     MatPaginatorModule,

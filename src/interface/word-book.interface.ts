@@ -5,7 +5,7 @@ export interface IWordBook {
   type?: string;
   wordBookParrentId?: string;
   order?: string;
-  description?: [];
+  description?: string;
   wordCardList?: IWordCard[];
   wordBookList?: [];
 }

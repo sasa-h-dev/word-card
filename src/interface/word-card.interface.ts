@@ -18,3 +18,5 @@ export interface IWordCard {
   isChecked?: boolean;
   wordArr?: string[];
 }
+
+// export type IWordCardEntity = Pick<IWordCard, 'id'>;

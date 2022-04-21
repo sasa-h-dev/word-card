@@ -18,7 +18,7 @@ export class WorkBookFacate {
 
   constructor(private store: Store<State>, private api: WordBookApiService) {}
 
-  // 初期获取所有
+  /**初期获取WordBookList */
   public fetchWordBookList(): void {
     this.api
       .fetchWordBookList()
@@ -33,9 +33,20 @@ export class WorkBookFacate {
     this.store.dispatch(Actions.setActiveWordBookList({ activeWordBookList }));
   }
 
+  /**获取WordBook详细 */
   public fetchWordBookDetail(wordBookId: string): void {
     this.api
       .fetchWordBookDetail(wordBookId)
+      .pipe(first())
+      .subscribe((wordBookDetail) => {
+        this.store.dispatch(Actions.fetchWordBookDetail({ wordBookDetail }));
+      });
+  }
+
+  /**保存WordBook详细 */
+  public saveWordBookDetail(wordBook: IWordBook): void {
+    this.api
+      .saveWordBookDetail(wordBook)
       .pipe(first())
       .subscribe((wordBookDetail) => {
         this.store.dispatch(Actions.fetchWordBookDetail({ wordBookDetail }));

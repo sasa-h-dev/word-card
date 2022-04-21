@@ -4,6 +4,8 @@ import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { WordCard, WordBook } from '../../libs/orm-entities';
 import { InjectRepository } from '@nestjs/typeorm';
+import { IWordBook } from '../../../interface/word-book.interface';
+import { IWordCard } from '../../../interface/word-card.interface';
 
 @Injectable()
 export class WordsService {
@@ -127,6 +129,28 @@ export class WordsService {
       return res;
     } catch (ex) {
       console.log('ex', ex);
+    }
+  }
+
+  async saveWordBookDetail(wordBook: IWordBook) {
+    console.log('saveWordBookDetail wordBook', wordBook);
+    return this.wordBookRepository.save({
+      id: wordBook.id,
+      title: wordBook.title,
+      description: wordBook.description,
+    });
+  }
+
+  async saveWordCards(inputWordCards: IWordCard[]) {
+    console.log('saveWordCardDetail inputWordBook', inputWordCards);
+    return this.wordCardRepository.save(inputWordCards);
+  }
+}
+
+function copy(source, dest) {
+  for (let key in dest) {
+    if (source.hasOwnProperty(key)) {
+      dest[key] = source[key];
     }
   }
 }

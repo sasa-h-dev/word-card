@@ -36,6 +36,16 @@ export class WorkCardFacate {
   // todo
   public fetchWordCardDetail(): void {}
 
+  /**保存WordBook详细 */
+  public saveWordCards(wordCards: IWordCard[]): void {
+    this.api
+      .saveWordCards(wordCards)
+      .pipe(first())
+      .subscribe((wordCardList) => {
+        this.store.dispatch(Actions.fetchWordCardList({ wordCardList }));
+      });
+  }
+
   /** 清除状态 所有*/
   async clearMyBlogStates(): Promise<void> {
     this.store.dispatch(

@@ -3,6 +3,8 @@ import { WordsService } from './words.service';
 import { Response } from 'express';
 import { config } from '../../libs/configs/configuration';
 import { ConfigService } from '@nestjs/config';
+import { IWordBook } from '../../../interface/word-book.interface';
+import { IWordCard } from '../../../interface/word-card.interface';
 
 @Controller('words')
 export class WordsController {
@@ -36,6 +38,18 @@ export class WordsController {
     @Body() body: { wordBookId: number }
   ) {
     res.json(await this.wordsService.getWordBookDetail(body.wordBookId));
+  }
+
+  @Post('save-word-book')
+  async saveWordBookDetail(@Res() res: Response, @Body() body: IWordBook) {
+    console.log('body', body);
+    res.json(await this.wordsService.saveWordBookDetail(body));
+  }
+
+  @Post('save-word-cards')
+  async saveWordCards(@Res() res: Response, @Body() body: IWordCard[]) {
+    console.log('body', body);
+    res.json(await this.wordsService.saveWordCards(body));
   }
 
   // @Get()

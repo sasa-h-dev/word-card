@@ -21,14 +21,14 @@ export class WordCard {
 
   /**读音*/
   @Column('character varying', {
-    name: 'Word',
+    name: 'Pronunciation',
     nullable: true,
   })
   pronunciation: string;
 
   /**声调 0 1，2，3，4，5*/
   @Column('character varying', {
-    name: 'Word',
+    name: 'Tone',
     nullable: true,
   })
   tone: string;

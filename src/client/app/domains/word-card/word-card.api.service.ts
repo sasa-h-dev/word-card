@@ -14,4 +14,14 @@ export class WordCardApiService {
     const url = `${this.apiUrl}/words/word-card-list`;
     return this.http.post<IWordCard[]>(url, { wordBookId });
   }
+
+  /**保存WordBook详细 */
+  saveWordCards(wordCards: IWordCard[]): Observable<IWordCard[]> {
+    const url = `${this.apiUrl}/words/save-word-cards`;
+    console.log(
+      'saveWordBookDetail(wordBook: IWordCard): Observable<IWordCard> {',
+      wordCards
+    );
+    return this.http.post<IWordCard[]>(url, wordCards);
+  }
 }
